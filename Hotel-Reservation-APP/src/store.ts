@@ -43,17 +43,35 @@ const useStore = create((set) => ({
  */
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// (Solo para TS): Crear interface para tipar "useStore"
+interface HotelState {
+  reservations: HotelWithDates[],
+  addReservation: (hotel: HotelBooked, dates: BookingDates) => void;
+}
+export interface HotelBooked {
+  name: string;
+  description: string;
+  id: number | string,
+  image: string;
+}
+interface BookingDates {
+  startDate: string;
+  endDate: string;
+}
+type HotelWithDates = [HotelBooked, BookingDates];
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /**
- * Creamps la "store" con una variable "reservations" y una función "addReservations" que la modifica:
+ * Creamos la "store" con una variable "reservations" y una función "addReservations" que la modifica:
  */
-const useStore = create ((set) => ({
+const useStore = create<HotelState> ((set) => ({
     reservations: [],
-    addReservation: (hotel, dates) => 
-        set (state => ({
+    addReservation: (hotel: HotelBooked, dates: BookingDates) => 
+        set ((state) => ({
             reservations: [...state.reservations, [hotel, dates]]
         }))
 }));
-
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Finalmente exportamos la "store":
 export default useStore;
 

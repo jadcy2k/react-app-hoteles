@@ -1,11 +1,22 @@
-import { useState } from 'react'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import HotelList from "./components/HotelList";
+import HotelDetails from "./components/HotelDetails";
+import { Route, Switch } from "wouter";
+import { Toaster } from "react-hot-toast";
+
+const client = new QueryClient();
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Booking APP</h1>
+      <Toaster position="top-left" reverseOrder={false} />
+      <QueryClientProvider client={client}>
+        <Switch>
+          <Route path="/" component={HotelList} />
+          <Route path="/hotel/:id" component={HotelDetails} />
+        </Switch>
+      </QueryClientProvider>
     </>
   )
 }

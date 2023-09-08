@@ -2,6 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { Typography, Stack, Button, Card, CardMedia, CardContent, CardActions } from "@mui/material";
 import { Link } from "wouter";
 
+export interface Hotel {
+  name: string,
+  description: string,
+  id: number | string,
+  image: string
+}
+
 // Crear función para fetch de datos:
 const fetchHotels = async () => {
     const urlStr = "http://localhost:3001/hotels"; // Para test, Cargaremos el "hotels.json" mediante "json-server".
@@ -14,7 +21,7 @@ const fetchHotels = async () => {
 }
 
 
-// Crear lista de hoteles::
+// Crear lista de hoteles:
 const HotelList = () => {
 
   // useQuery requiere de una "queryKey" (p.ej array "hotels") y una "queryFunction" (la fetchHotels):
@@ -38,7 +45,7 @@ const HotelList = () => {
       </Typography>
 
       <Stack spacing={2}>
-        {data.map((hotel: { id: string; image: string; name: string; description: string; }) => (
+        {data.map((hotel:Hotel) => (
           <Link key={hotel.id} href={`/hotel/${hotel.id}`}>
             <Card sx={{ maxWidth: 345, backgroundColor: '#e8e8e8' }}>
               <CardMedia sx={{ height: 140 }} image={hotel.image} title={hotel.name} />
