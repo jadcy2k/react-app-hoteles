@@ -85,6 +85,8 @@ return (
 
 ## UseQUERY:
 
+Guía para usar TANSTACK/QUERY: https://tanstack.com/query/v4/docs/react/overview
+
 useQuery es una función proporcionada por "React-Query" que facilita la obtención y gestión de datos desde una API o cualquier fuente de datos.
 
 Este ejemplo, el componente funcional "UserList" crea una función "fetchUsers" y más tarde la asocia a la key "users" mediante "useQuery":
@@ -145,6 +147,8 @@ Por ejemplo, en "app.tsx":
 
 ## JSON-SERVER:
 
+Guía para usar JSON-SERVER: https://www.npmjs.com/package/json-server
+
 npm i -D json-server
 
 La idea es de simular la respuesta de una API mediante un archivo JSON.
@@ -164,6 +168,8 @@ http://localhost:3001/hotels/2
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ## SWITCH ROUTE WITH "WOUTER":
+
+Guía para usar WOUTER: https://www.npmjs.com/package/wouter
 
 La librería "wouter" es una excelente opción para gestionar las rutas en una aplicación React de manera sencilla y eficiente. 10 veces más ligero que "react-router".
 
@@ -222,7 +228,9 @@ Por tanto, ahora nuestra "app.tsx" quedará así:
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## useForm (react-hook-form):
 
-'react-hook-form' es una biblioteca popular para gestionar formularios en aplicaciones React de manera eficiente. 'useForm' es un hook que te ayuda a controlar y gestionar los estados y validaciones de tus formularios de manera fácil y efectiva: https://react-hook-form.com/
+Guía para usar REACT-HOOK-FORM: https://react-hook-form.com/
+
+'react-hook-form' es una biblioteca popular para gestionar formularios en aplicaciones React de manera eficiente. 'useForm' es un hook que te ayuda a controlar y gestionar los estados y validaciones de tus formularios de manera fácil y efectiva.
 
 Dentro del componente, inicializamos el hook 'useForm':
 
@@ -260,11 +268,24 @@ Finalmente,el propósito de 'handleSubmit' es manejar el envío del formulario. 
 
 ## TOASTS:
 
+Guía para usar HOT-TOAST: https://www.npmjs.com/package/react-hot-toast
+
 "react-hot-toast" es una librería de notificaciones tipo "toast" diseñada específicamente para aplicaciones React. Es fácil de usar y personalizable.
 
+Ejemplo:
+``````js
+import toast, { Toaster } from 'react-hot-toast';
 
+const notify = () => toast('Here is your toast.');
 
+const App = () => {
+  return (
+    <div>
+      <button onClick={notify}>Make me a toast</button>
+      <Toaster />
+    </div>
+  );
+};
+``````
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
